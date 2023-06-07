@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MySmartHomeWeb:war">
+    <output-path>$PROJECT_DIR$/MySmartHomeWeb/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>MySmartHomeWeb</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="MySmartHomeWeb-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="MySmartHomeWeb:war exploded" />
+    </root>
+  </artifact>
+</component>

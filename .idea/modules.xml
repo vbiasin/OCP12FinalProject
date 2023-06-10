@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MySmartHomeSPA.iml" filepath="$PROJECT_DIR$/MySmartHomeSPA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MySmartHomeSpringCloudConfig/MySmartHomeSpringCloudConfig.iml" filepath="$PROJECT_DIR$/MySmartHomeSpringCloudConfig/MySmartHomeSpringCloudConfig.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MySmartHomeWeb/MySmartHomeWeb.iml" filepath="$PROJECT_DIR$/MySmartHomeWeb/MySmartHomeWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/OCP12MySmartHome.iml" filepath="$PROJECT_DIR$/.idea/OCP12MySmartHome.iml" />
     </modules>
   </component>

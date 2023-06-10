@@ -8,15 +8,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="MySmartHomeSpringCloudConfig" />
         <module name="MySmartHomeWeb" />
+        <module name="MySmartHomeAdministration" />
+        <module name="MySmartHomeEureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MySmartHomeSpringCloudConfig" target="17" />
-      <module name="MySmartHomeWeb" target="17" />
+      <module name="MySmartHomeAdministration.main" target="17" />
+      <module name="MySmartHomeAdministration.test" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="MySmartHomeAdministration" options="-parameters" />
+      <module name="MySmartHomeEureka" options="-parameters" />
       <module name="MySmartHomeSpringCloudConfig" options="-parameters" />
       <module name="MySmartHomeWeb" options="-parameters" />
     </option>

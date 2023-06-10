@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/MySmartHomeAdministration" />
+    <file type="web" url="file://$PROJECT_DIR$/MySmartHomeEureka" />
     <file type="web" url="file://$PROJECT_DIR$/MySmartHomeSpringCloudConfig" />
     <file type="web" url="file://$PROJECT_DIR$/MySmartHomeWeb" />
   </component>
@@ -9,6 +12,8 @@
       <list>
         <option value="$PROJECT_DIR$/MySmartHomeWeb/pom.xml" />
         <option value="$PROJECT_DIR$/MySmartHomeSpringCloudConfig/pom.xml" />
+        <option value="$PROJECT_DIR$/MySmartHomeAdministration/pom.xml" />
+        <option value="$PROJECT_DIR$/MySmartHomeEureka/pom.xml" />
       </list>
     </option>
   </component>

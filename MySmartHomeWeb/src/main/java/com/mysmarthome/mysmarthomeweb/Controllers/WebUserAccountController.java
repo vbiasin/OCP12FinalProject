@@ -6,13 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WebUserAccountController {
 
     @Autowired
-    MySmartHomeAdministrationUserProxy userProxy;
+    private MySmartHomeAdministrationUserProxy userProxy;
 
     @GetMapping("/")
     public String start() {
@@ -37,7 +36,7 @@ public class WebUserAccountController {
     @PostMapping("/inscription")
     public String inscriptionForm( String mail, String password) {
         UserAccount userAccount = new UserAccount(mail,password);
-        UserAccount userAccountSaved = userProxy.registerUser(userAccount);
+        userProxy.registerUser(userAccount);
         return "redirect:login";
     }
 

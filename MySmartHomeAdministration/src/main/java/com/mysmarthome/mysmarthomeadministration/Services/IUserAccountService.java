@@ -2,6 +2,8 @@ package com.mysmarthome.mysmarthomeadministration.Services;
 
 import com.mysmarthome.mysmarthomeadministration.Entites.UserAccount;
 
+
+
 public interface IUserAccountService {
 
     public UserAccount register(UserAccount account) throws Exception;

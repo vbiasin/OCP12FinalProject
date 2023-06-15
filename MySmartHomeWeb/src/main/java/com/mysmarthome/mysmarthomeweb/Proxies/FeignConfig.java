@@ -1,6 +1,5 @@
 package com.mysmarthome.mysmarthomeweb.Proxies;
 
-import feign.Contract;
 import feign.auth.BasicAuthRequestInterceptor;
 import org.springframework.cloud.openfeign.support.PageJacksonModule;
 import org.springframework.cloud.openfeign.support.SortJacksonModule;
@@ -9,12 +8,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FeignConfig {
-
-    @Bean
-    public Contract feignContract() {
-        return new feign.Contract.Default();
-    }
-
 
     @Bean
     public BasicAuthRequestInterceptor mBasicAuthRequestInterceptor(){
@@ -30,6 +23,5 @@ public class FeignConfig {
     public SortJacksonModule sortJacksonModule() {
         return new SortJacksonModule();
     }
-
 
 }

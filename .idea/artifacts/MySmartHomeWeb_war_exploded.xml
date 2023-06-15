@@ -21,7 +21,6 @@
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:5.0.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:6.0.9" />
           <element id="library" level="project" name="Maven: org.hibernate.orm:hibernate-core:6.1.7.Final" />
-          <element id="library" level="project" name="Maven: jakarta.persistence:jakarta.persistence-api:3.1.0" />
           <element id="library" level="project" name="Maven: jakarta.transaction:jakarta.transaction-api:2.0.1" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.5.0.Final" />
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:6.0.6.Final" />
@@ -40,7 +39,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:6.0.9" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:6.0.9" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:6.0.9" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.7" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:6.0.9" />
           <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.0" />
           <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter:4.0.0" />
@@ -96,10 +94,32 @@
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-cache:3.0.7" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:6.0.9" />
           <element id="library" level="project" name="Maven: com.stoyanr:evictor:1.0.0" />
-          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-config:4.0.0" />
-          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-config-client:4.0.0" />
+          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-ribbon:1.4.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-ribbon:1.4.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-netflix-core:1.4.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-archaius:1.4.7.RELEASE" />
+          <element id="library" level="project" name="Maven: com.netflix.ribbon:ribbon:2.2.5" />
+          <element id="library" level="project" name="Maven: com.netflix.ribbon:ribbon-transport:2.2.5" />
+          <element id="library" level="project" name="Maven: io.reactivex:rxnetty-contexts:0.4.9" />
+          <element id="library" level="project" name="Maven: io.reactivex:rxnetty-servo:0.4.9" />
+          <element id="library" level="project" name="Maven: com.netflix.hystrix:hystrix-core:1.4.3" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: io.reactivex:rxnetty:0.4.9" />
+          <element id="library" level="project" name="Maven: com.netflix.ribbon:ribbon-core:2.2.5" />
+          <element id="library" level="project" name="Maven: com.netflix.ribbon:ribbon-httpclient:2.2.5" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-client:1.19.1" />
+          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-core:1.19.1" />
+          <element id="library" level="project" name="Maven: javax.ws.rs:jsr311-api:1.1.1" />
+          <element id="library" level="project" name="Maven: com.sun.jersey.contribs:jersey-apache-client4:1.19.1" />
+          <element id="library" level="project" name="Maven: com.netflix.netflix-commons:netflix-commons-util:0.1.1" />
+          <element id="library" level="project" name="Maven: com.netflix.ribbon:ribbon-loadbalancer:2.2.5" />
+          <element id="library" level="project" name="Maven: com.netflix.netflix-commons:netflix-statistics:0.1.1" />
+          <element id="library" level="project" name="Maven: io.reactivex:rxjava:1.2.0" />
+          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-config:4.0.1" />
+          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-config-client:4.0.1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.14.3" />
-          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-bootstrap:4.0.0" />
+          <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-starter-bootstrap:4.0.1" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-security:3.0.7" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:3.0.7" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:3.0.7" />
@@ -135,12 +155,15 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:6.0.9" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:10.1.7" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-annotations-api:10.1.8" />
+          <element id="library" level="project" name="Maven: io.github.openfeign:feign-slf4j:12.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.7" />
+          <element id="library" level="project" name="Maven: io.github.openfeign:feign-core:12.2" />
           <element id="library" level="project" name="Maven: org.springframework.cloud:spring-cloud-openfeign-core:4.0.1" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.0.7" />
           <element id="library" level="project" name="Maven: io.github.openfeign.form:feign-form-spring:3.8.0" />
           <element id="library" level="project" name="Maven: io.github.openfeign.form:feign-form:3.8.0" />
           <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.4" />
-          <element id="library" level="project" name="Maven: io.github.openfeign:feign-core:12.2" />
+          <element id="library" level="project" name="Maven: jakarta.persistence:jakarta.persistence-api:3.1.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

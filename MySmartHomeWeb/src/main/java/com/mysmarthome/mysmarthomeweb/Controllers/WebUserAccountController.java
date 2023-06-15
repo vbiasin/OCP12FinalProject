@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class WebUserAccountController {
 
     @Autowired
-    private MySmartHomeAdministrationUserProxy userProxy;
+    MySmartHomeAdministrationUserProxy userProxy;
 
     @GetMapping("/")
     public String start() {

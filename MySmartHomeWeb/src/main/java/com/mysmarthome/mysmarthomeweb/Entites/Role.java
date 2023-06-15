@@ -1,8 +1,9 @@
 package com.mysmarthome.mysmarthomeweb.Entites;
 
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.*;
+
 
 
 @Entity

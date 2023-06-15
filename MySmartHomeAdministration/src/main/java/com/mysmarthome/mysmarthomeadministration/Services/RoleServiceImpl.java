@@ -5,6 +5,7 @@ import com.mysmarthome.mysmarthomeadministration.DAO.UserAccountRepository;
 import com.mysmarthome.mysmarthomeadministration.Entites.Role;
 import com.mysmarthome.mysmarthomeadministration.Entites.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,15 +17,13 @@ import java.util.Optional;
 public class RoleServiceImpl implements IRoleService{
 
     @Autowired
-    UserAccountRepository userRepository;
+    @Qualifier("userAccountRepository")
+    private UserAccountRepository userRepository;
 
     @Autowired
-    RoleRepository roleRepository;
+    @Qualifier("roleRepository")
+    private RoleRepository roleRepository;
 
-    public RoleServiceImpl(UserAccountRepository userAccountRepository, RoleRepository roleRepository) {
-        this.userRepository=userAccountRepository;
-        this.roleRepository=roleRepository;
-    }
 
     @Override
     public void addRoleToUserAccount(String mail, int idRole) throws Exception {

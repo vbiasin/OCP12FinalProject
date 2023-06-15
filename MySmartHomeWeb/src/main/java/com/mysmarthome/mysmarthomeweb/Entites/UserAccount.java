@@ -3,8 +3,7 @@ package com.mysmarthome.mysmarthomeweb.Entites;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.*;
-
+import jakarta.persistence.*;
 
 @Entity
 public class UserAccount implements Serializable {

@@ -5,6 +5,7 @@ import com.mysmarthome.mysmarthomeadministration.DAO.UserAccountRepository;
 import com.mysmarthome.mysmarthomeadministration.Entites.Role;
 import com.mysmarthome.mysmarthomeadministration.Entites.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,9 +21,11 @@ public class UserAccountServiceImpl implements IUserAccountService{
     BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
+    @Qualifier("userAccountRepository")
     UserAccountRepository userAccountRepository;
 
     @Autowired
+    @Qualifier("roleRepository")
     RoleRepository roleRepository;
 
 

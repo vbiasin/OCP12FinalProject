@@ -10,10 +10,12 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 public class SecurityConfig{
 
-    @Bean
+   /*@Bean
     public SecurityFilterChain apiSecurity(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.formLogin().loginPage("/login").defaultSuccessUrl("http:/localhost:4200", true);
@@ -22,9 +24,18 @@ public class SecurityConfig{
         http.authorizeRequests().requestMatchers("http:/localhost:4200/administration").hasAuthority("ADMIN");
         http.exceptionHandling().accessDeniedPage("/403");
         http.logout();
+        http.httpBasic();
+        return http.build();
+    }*/
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((authz) -> authz
+                    .anyRequest().authenticated()
+            )
+            .httpBasic(withDefaults());
         return http.build();
     }
-
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user = User.builder()

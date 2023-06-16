@@ -29,11 +29,14 @@ public class SecurityConfig{
     }*/
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests((authz) -> authz
-                    .anyRequest().authenticated()
-            )
-            .httpBasic(withDefaults());
+        //http.formLogin().loginPage("/login").defaultSuccessUrl("http:/localhost:4200", true);
+        http.authorizeRequests().requestMatchers("/inscription","/login").permitAll(); //mettre inscription dans ADMIN après creéation premier user
+        http.authorizeRequests().requestMatchers("http:/localhost:4200").hasAuthority("USER");
+        http.authorizeRequests().requestMatchers("http:/localhost:4200/administration").hasAuthority("ADMIN");
+        http.exceptionHandling().accessDeniedPage("/403");
+        http.logout();
+        http.httpBasic();
+           http.httpBasic(withDefaults());
         return http.build();
     }
     @Bean

@@ -12,17 +12,13 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark" sec:authorize="isAuthenticated">
-        <a class="navbar-brand" href="home">Médiathèque Orbis Unum</a>
+        <a class="navbar-brand" href="home">MySmartHomeApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="navbarContent" class="collapse navbar-collapse">
             <ul class="navbar-nav" >
-                <li class="nav-item"><a class="nav-link" th:href="@{/books}">Livres</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/loans}">Prêts</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/reservations}">Réservations</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Mon contact</a></li>
-                <li class="nav-item" sec:authorize="hasAuthority('ADMIN')"><a class="nav-link" th:href="@{/administration}">Administration</a></li>
+                <li class="nav-item" sec:authorize="hasAuthority('ADMIN')"><a class="nav-link" th:href="@{/inscription}">Administration</a></li>
                 <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Se déconnecter</a></li>
             </ul>
         </div>

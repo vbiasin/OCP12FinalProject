@@ -8,18 +8,20 @@
 </head>
 <body>
 <section layout:fragment="content" class="jumbotron">
-    <form class="text-left text-md-center" th:action="@{/inscription}" method="post">
-        <div>
-            <label>Mail:</label>
-            <input type="text" name="mail"/>
-        </div>
-        <div>
-            <label>Mot de passe:</label>
-            <input type="password" name="password"/>
-        </div>
-        <button type="submit">OK</button>
-    </form>
-
+    <div>
+        <p>Ajouter un nouvel utilisateur</p>
+        <form class="text-left text-md-center" th:action="@{/inscription}" method="post">
+            <div>
+                <label>Mail:</label>
+                <input type="text" name="mail"/>
+            </div>
+            <div>
+                <label>Mot de passe:</label>
+                <input type="password" name="password"/>
+            </div>
+            <button type="submit">OK</button>
+        </form>
+    </div>
 </section>
 </body>
 </html>

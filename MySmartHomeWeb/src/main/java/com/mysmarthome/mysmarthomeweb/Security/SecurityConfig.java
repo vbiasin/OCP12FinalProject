@@ -24,9 +24,9 @@ public class SecurityConfig extends WebSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.formLogin().loginPage("/login").defaultSuccessUrl("/home", true);
-        http.authorizeRequests().requestMatchers("/inscription","/login").permitAll(); //mettre inscription dans ADMIN après creéation premier user
+        http.authorizeRequests().requestMatchers("/login").permitAll(); //mettre inscription dans ADMIN après creéation premier user
         http.authorizeRequests().requestMatchers("http:/localhost:4200").hasAuthority("USER");
-        http.authorizeRequests().requestMatchers("http:/localhost:4200/administration").hasAuthority("ADMIN");
+        http.authorizeRequests().requestMatchers("/inscription").hasAuthority("ADMIN");
         http.exceptionHandling().accessDeniedPage("/403");
         http.logout();
         http.httpBasic();

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 
+@Entity
 public class Sensor  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

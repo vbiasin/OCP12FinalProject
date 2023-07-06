@@ -15,8 +15,6 @@ public class RecordValue implements Serializable {
     private String sensorName;
     private String value;
     private LocalDateTime recordDate;
-    @ManyToMany(mappedBy = "recordValues")
-    private Collection<Sensor> sensors;
 
     public RecordValue() {
         super();
@@ -55,11 +53,4 @@ public class RecordValue implements Serializable {
         this.recordDate = recordDate;
     }
 
-    public Collection<Sensor> getSensors() {
-        return sensors;
-    }
-
-    public void setSensors(Collection<Sensor> sensors) {
-        this.sensors = sensors;
-    }
 }

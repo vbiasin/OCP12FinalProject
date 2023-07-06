@@ -13,11 +13,7 @@ public class Sensor  implements Serializable {
     private String sensorType;
     private String localisation;
     private boolean isActive;
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "sensor_recordValues",
-            joinColumns = @JoinColumn(name = "sensor_name"),
-            inverseJoinColumns = @JoinColumn(name = "recordValue_sensorName"))
+    @OneToMany(fetch = FetchType.EAGER)
     private Collection<RecordValue> recordValues;
 
     public Sensor() {

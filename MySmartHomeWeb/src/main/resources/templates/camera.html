@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Lecteur VLC</title>
+  <style>
+    #vlcPlayer {
+      width: 640px;
+      height: 480px;
+    }
+  </style>
+</head>
+<body>
+<div id="vlcPlayer"></div>
+
+<script>
+  const vlcPlayer = document.getElementById("vlcPlayer");
+
+  if (typeof (VLC) != "undefined") {
+    vlcPlayer.innerHTML = '<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" width="640" height="480" target="192.168.1.68" />';
+  } else {
+    vlcPlayer.innerHTML = '<a href="http://www.videolan.org/vlc/">Téléchargez VLC media player ici</a> pour lire la vidéo.';
+  }
+</script>
+</body>
+</html>

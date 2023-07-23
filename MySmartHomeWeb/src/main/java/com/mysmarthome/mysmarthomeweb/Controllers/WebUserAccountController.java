@@ -40,7 +40,10 @@ public class WebUserAccountController {
         return "redirect:login";
     }
 
-
+    @GetMapping("/camera")
+    public String camera() {
+        return "camera";
+    }
 
 
 }

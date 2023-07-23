@@ -1,10 +1,9 @@
 package com.mysmarthome.mysmarthomeweb.Entites;
 
 import jakarta.persistence.*;
-import com.mysmarthome.mysmarthomeweb.Entites.Sensor;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Collection;
+
 
 
 @Entity

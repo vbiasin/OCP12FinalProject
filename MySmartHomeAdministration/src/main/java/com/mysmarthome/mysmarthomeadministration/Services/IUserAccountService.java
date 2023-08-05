@@ -2,6 +2,7 @@ package com.mysmarthome.mysmarthomeadministration.Services;
 
 import com.mysmarthome.mysmarthomeadministration.Entites.UserAccount;
 
+import java.util.List;
 
 
 public interface IUserAccountService {
@@ -10,5 +11,7 @@ public interface IUserAccountService {
     public boolean isValid(UserAccount account) throws Exception;
     public UserAccount getUserAccount(String mail) throws Exception;
     public void removeUserAccount(int idUserAccount) throws Exception;
+    public List<UserAccount> searchUserAccount(String mail) throws Exception;
+
 
 }

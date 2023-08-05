@@ -28,16 +28,11 @@ public class WebUserAccountController {
         return "home";
     }
 
-    @GetMapping("/inscription")
-    public String inscription() {
-        return "inscription";
-    }
-
     @PostMapping("/inscription")
     public String inscriptionForm( String mail, String password) {
         UserAccount userAccount = new UserAccount(mail,password);
         userProxy.registerUser(userAccount);
-        return "redirect:login";
+        return "redirect:administration";
     }
 
     @GetMapping("/camera")

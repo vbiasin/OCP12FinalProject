@@ -33,7 +33,7 @@ public class WebAdministrationController {
     }
 
     @PostMapping("/searchUserAccount")
-    public String searchUserAccount( @RequestParam(name="mail", defaultValue="toto@exemple.com") String mail, Model model) throws Exception {
+    public String searchUserAccount( @RequestParam(name="mail", defaultValue="toto@exemple.com") String mail,Model model) throws Exception {
 
         UserAccountDTO userAccountDTO = new UserAccountDTO(mail);
         List<UserAccount> pageListUsers;

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -78,7 +79,22 @@ public class UserAccountServiceImpl implements IUserAccountService{
         userAccountRepository.delete(account.get());
     }
 
+    @Override
+    public List<UserAccount> searchUserAccount(String mail) throws Exception {
 
+        List<UserAccount> result = new ArrayList<>();
+
+        if(!mail.equals("toto@exemple.com")){
+            UserAccount userAccount = userAccountRepository.findByMail(mail).get();
+            result.add(userAccount);
+        }
+        else{
+            return userAccountRepository.findAll();
+        }
+
+
+        return result;
+    }
 
 
 }

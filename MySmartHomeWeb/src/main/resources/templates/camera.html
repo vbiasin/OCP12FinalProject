@@ -1,25 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-  <title>Lecteur VLC</title>
-  <style>
-    #vlcPlayer {
-      width: 640px;
-      height: 480px;
-    }
-  </style>
+  <title>Lecture vidéo</title>
 </head>
 <body>
-<div id="vlcPlayer"></div>
-
-<script>
-  const vlcPlayer = document.getElementById("vlcPlayer");
-
-  if (typeof (VLC) != "undefined") {
-    vlcPlayer.innerHTML = '<embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2" width="640" height="480" target="192.168.1.68" />';
-  } else {
-    vlcPlayer.innerHTML = '<a href="http://www.videolan.org/vlc/">Téléchargez VLC media player ici</a> pour lire la vidéo.';
-  }
-</script>
+<h1>Ma vidéo</h1>
+<video controls>
+  <source src="http://192.168.1.68:8090" type="video/mp4">
+  <!-- Vous pouvez ajouter des sources supplémentaires ici pour prendre en charge différents formats de vidéo -->
+  Votre navigateur ne supporte pas la lecture de vidéos au format MP4.
+</video>
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{template.html}">
+<head>
+    <meta charset="utf-8"/>
+    <title>Administration</title>
+</head>
+<body>
+<section layout:fragment="content" class="jumbotron">
+    <h1>PAGE D'ADMINISTRATION !!!</h1>
+    <p>IMPORTANT: pour ajouter ou supprimer un rôle, il faut renseigner son identifiant. Le rôle USER est le rôle par défaut et ne peut donc pas être supprimer !</p>
+    <p>1 pour ADMIN</p>
+    <p>2 pour USER</p>
+    <div class="row">
+        <div class="col-6">
+            <div class="card" >
+                <div class="card-body">
+                    <h3 class="card-title">Administration</h3>
+                    <h4>Ajouter un utilisateur</h4>
+                    <div>
+                        <form class="text-left text-md-center" th:action="@{/inscription}" method="post">
+                            <div>
+                                <label>Mail:</label>
+                                <input type="text" name="mail"/>
+                            </div>
+                            <div>
+                                <label>Mot de passe:</label>
+                                <input type="password" name="password"/>
+                            </div>
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                        <div th:if="${exception}" th:text="${exception}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Rechercher </h3>
+                    <h4>Des utilisateurs</h4>
+                    <div>
+                        <form th:action="@{/searchUserAccount}" method="post">
+                            <div>
+                                <label>Mail:</label>
+                                <input type="text" name="mail" />
+                            </div>
+                            <button type="submit">Rechercher</button>
+                        </form>
+                        <div th:if="${exception}" th:text="${exception}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Liste utilisateurs</h3>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th><th>Mail </th><th>Rôles</th><th>Ajouter Rôle</th><th>Supprimer Rôle</th><th>Supprimer Compte</th>
+                        </tr>
+                        <tr th:each="user:${listUsers}">
+                            <td th:text= "${user.id}"></td>
+                            <td th:text= "${user.mail}"></td>
+                            <td ><th:block th:each="role : ${user.roles}">
+                                <p th:text= "${role.name}"></p>
+                            </th:block></td>
+                            <td ><form th:action="@{/addRole(userAccountMail=${user.mail})}" method="post">
+                                <div>
+                                    <label>IDRole:</label>
+                                    <input type="number"  step="any" name="idRole" />
+                                </div>
+                                <button type="submit"  >Ajouter</button></form></td>
+                            <td ><form th:action="@{/removeRole(userAccountMail=${user.mail})}" method="post">
+                                <div>
+                                    <label>IDRole:</label>
+                                    <input type="number"  step="any" name="idRole" />
+                                </div>
+                                <button type="submit"  >Supprimer</button></form></td>
+                            <td>
+                                <form th:action="@{/removeUserAccount(idUserAccount=${user.id})}" method="post">
+                                    <button type="submit"  >Supprimer Compte</button></form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

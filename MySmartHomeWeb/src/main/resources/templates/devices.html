@@ -17,14 +17,18 @@
                     <h3 class="card-title">Gestion des capteurs</h3>
                     <h4>Ajouter un capteur</h4>
                     <div>
-                        <form class="text-left text-md-center" th:action="@{/inscription}" method="post">
+                        <form class="text-left text-md-center" th:action="@{/addSensor}" method="post">
                             <div>
-                                <label>Mail:</label>
-                                <input type="text" name="mail"/>
+                                <label>Name:</label>
+                                <input type="text" name="name"/>
                             </div>
                             <div>
-                                <label>Mot de passe:</label>
-                                <input type="password" name="password"/>
+                                <label>Type:</label>
+                                <input type="text" name="sensorType"/>
+                            </div>
+                            <div>
+                                <label>Localisation:</label>
+                                <input type="text" name="localisation"/>
                             </div>
                             <button type="submit">Enregistrer</button>
                         </form>
@@ -39,12 +43,20 @@
                     <h3 class="card-title">Gestion des caméras </h3>
                     <h4>Ajouter une caméra</h4>
                     <div>
-                        <form th:action="@{/searchUserAccount}" method="post">
+                        <form th:action="@{/addCamera}" method="post">
                             <div>
-                                <label>Mail:</label>
-                                <input type="text" name="mail" />
+                                <label>Modèle:</label>
+                                <input type="text" name="cameraModel" />
                             </div>
-                            <button type="submit">Rechercher</button>
+                            <div>
+                                <label>Localisation:</label>
+                                <input type="text" name="localisation"/>
+                            </div>
+                            <div>
+                                <label>IPv4:</label>
+                                <input type="text" name="ipAdress"/>
+                            </div>
+                            <button type="submit">Enregistrer</button>
                         </form>
                         <div th:if="${exception}" th:text="${exception}"></div>
                     </div>
@@ -62,12 +74,14 @@
                         <tr>
                             <th>ID</th><th>Capteurs </th><th>Supprimer capteur</th>
                         </tr>
-                        <tr th:each="user:${listUsers}">
-                            <td th:text= "${user.id}"></td>
-                            <td th:text= "${user.mail}"></td>
+                        <tr th:each="sensor:${listSensors}">
+                            <td th:text= "${sensor.id}"></td>
+                            <td th:text= "${sensor.sensorType}"></td>
+                            <td th:text= "${sensor.name}"></td>
+                            <td th:text= "${sensor.localisation}"></td>
                             <td>
-                                <form th:action="@{/removeUserAccount(idUserAccount=${user.id})}" method="post">
-                                    <button type="submit"  >Supprimer Compte</button></form>
+                                <form th:action="@{/removeSensor(idSensor=${sensor.id})}" method="post">
+                                    <button type="submit" > Supprimer </button></form>
                             </td>
                         </tr>
                     </table>
@@ -76,12 +90,14 @@
                         <tr>
                             <th>ID</th><th>Caméra </th><th>Supprimer caméra</th>
                         </tr>
-                        <tr th:each="user:${listUsers}">
-                            <td th:text= "${user.id}"></td>
-                            <td th:text= "${user.mail}"></td>
+                        <tr th:each="camera:${listCameras}">
+                            <td th:text= "${camera.id}"></td>
+                            <td th:text= "${camera.cameraModel}"></td>
+                            <td th:text= "${camera.ipAdress}"></td>
+                            <td th:text= "${camera.localisation}"></td>
                             <td>
-                                <form th:action="@{/removeUserAccount(idUserAccount=${user.id})}" method="post">
-                                    <button type="submit"  >Supprimer Compte</button></form>
+                                <form th:action="@{/removeCamera(idCamera=${camera.id})}" method="post">
+                                    <button type="submit"  >Supprimer</button></form>
                             </td>
                         </tr>
                     </table>

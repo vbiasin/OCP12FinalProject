@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class DeviceController {
     @Autowired
@@ -59,10 +61,9 @@ public class DeviceController {
     }
 
     @GetMapping("/getCamerasBack")
-    public ResponseEntity<String> getCameras() throws Exception {
+    public ResponseEntity<List<Camera>> getCameras() throws Exception {
         try {
-            deviceService.getCameras();
-            return new ResponseEntity<String>("", HttpStatus.OK);
+            return new ResponseEntity<List<Camera>>(deviceService.getCameras(), HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,10 +71,9 @@ public class DeviceController {
     }
 
     @GetMapping("/getSensorsBack")
-    public ResponseEntity<String> getSensors() throws Exception {
+    public ResponseEntity<List<Sensor>> getSensors() throws Exception {
         try {
-            deviceService.getSensors();
-            return new ResponseEntity<String>("", HttpStatus.OK);
+            return new ResponseEntity<List<Sensor>>( deviceService.getSensors(), HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -22,7 +22,6 @@ public class WebDeviceController {
 
         List<Sensor> pageListSensors;
         List<Camera> pageListCameras;
-
         try {
 
             pageListSensors = deviceProxy.getSensors();

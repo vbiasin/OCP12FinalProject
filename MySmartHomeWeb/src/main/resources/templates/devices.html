@@ -72,7 +72,7 @@
                     <h3 class="card-title">Liste des capteurs</h3>
                     <table class="table table-striped">
                         <tr>
-                            <th>ID</th><th>Capteurs </th><th>Supprimer capteur</th>
+                            <th>ID</th><th>Type Capteur </th><th>Nom </th><th>localisation </th><th>Supprimer capteur</th>
                         </tr>
                         <tr th:each="sensor:${listSensors}">
                             <td th:text= "${sensor.id}"></td>
@@ -88,7 +88,7 @@
                     <h3 class="card-title">Liste des caméras</h3>
                     <table class="table table-striped">
                         <tr>
-                            <th>ID</th><th>Caméra </th><th>Supprimer caméra</th>
+                            <th>ID</th><th>Modèle </th><th>IPv4 </th><th>localisation </th><th>Supprimer caméra</th>
                         </tr>
                         <tr th:each="camera:${listCameras}">
                             <td th:text= "${camera.id}"></td>

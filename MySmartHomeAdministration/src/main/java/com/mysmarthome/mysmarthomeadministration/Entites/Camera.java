@@ -12,13 +12,19 @@ public class Camera implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String cameraModel;
-    private String connection;
     private String localisation;
     private String ipAdress;
     private boolean isActive;
 
     public Camera() {
         super();
+        this.isActive=true;
+    }
+
+    public Camera(String cameraModel,String localisation, String ipAdress) {
+        this.cameraModel = cameraModel;
+        this.localisation = localisation;
+        this.ipAdress = ipAdress;
         this.isActive=true;
     }
 
@@ -36,14 +42,6 @@ public class Camera implements Serializable {
 
     public void setCameraModel(String cameraModel) {
         this.cameraModel = cameraModel;
-    }
-
-    public String getConnection() {
-        return connection;
-    }
-
-    public void setConnection(String connection) {
-        this.connection = connection;
     }
 
     public String getLocalisation() {

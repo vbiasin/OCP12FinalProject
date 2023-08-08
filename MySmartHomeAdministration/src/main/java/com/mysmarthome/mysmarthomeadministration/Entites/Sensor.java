@@ -21,6 +21,13 @@ public class Sensor  implements Serializable {
         this.isActive=true;
     }
 
+    public Sensor(String name, String sensorType, String localisation) {
+        this.name = name;
+        this.sensorType = sensorType;
+        this.localisation = localisation;
+        this.isActive = true;
+    }
+
     public int getId() {
         return id;
     }

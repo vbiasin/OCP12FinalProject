@@ -1,10 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{template.html}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <title>Administration</title>
 </head>
 <body>
+<section layout:fragment="content" class="jumbotron">
+    <h1>PAGE DE GESTION DES CAPTEURS & CAMERAS !!!</h1>
+    <div class="row">
+        <div class="col-6">
+            <div class="card" >
+                <div class="card-body">
+                    <h3 class="card-title">Gestion des capteurs</h3>
+                    <h4>Ajouter un capteur</h4>
+                    <div>
+                        <form class="text-left text-md-center" th:action="@{/inscription}" method="post">
+                            <div>
+                                <label>Mail:</label>
+                                <input type="text" name="mail"/>
+                            </div>
+                            <div>
+                                <label>Mot de passe:</label>
+                                <input type="password" name="password"/>
+                            </div>
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                        <div th:if="${exception}" th:text="${exception}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Gestion des caméras </h3>
+                    <h4>Ajouter une caméra</h4>
+                    <div>
+                        <form th:action="@{/searchUserAccount}" method="post">
+                            <div>
+                                <label>Mail:</label>
+                                <input type="text" name="mail" />
+                            </div>
+                            <button type="submit">Rechercher</button>
+                        </form>
+                        <div th:if="${exception}" th:text="${exception}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Liste des capteurs</h3>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th><th>Capteurs </th><th>Supprimer capteur</th>
+                        </tr>
+                        <tr th:each="user:${listUsers}">
+                            <td th:text= "${user.id}"></td>
+                            <td th:text= "${user.mail}"></td>
+                            <td>
+                                <form th:action="@{/removeUserAccount(idUserAccount=${user.id})}" method="post">
+                                    <button type="submit"  >Supprimer Compte</button></form>
+                            </td>
+                        </tr>
+                    </table>
+                    <h3 class="card-title">Liste des caméras</h3>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th><th>Caméra </th><th>Supprimer caméra</th>
+                        </tr>
+                        <tr th:each="user:${listUsers}">
+                            <td th:text= "${user.id}"></td>
+                            <td th:text= "${user.mail}"></td>
+                            <td>
+                                <form th:action="@{/removeUserAccount(idUserAccount=${user.id})}" method="post">
+                                    <button type="submit"  >Supprimer Compte</button></form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>

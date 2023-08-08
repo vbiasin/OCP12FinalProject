@@ -12,5 +12,5 @@ public interface IDeviceService {
     public Camera addCamera(Camera camera) throws Exception;
     public List<Sensor> getSensors() throws Exception;
     public List<Camera> getCameras() throws Exception;
-    public void displayDevice() throws Exception;
+
 }

@@ -35,10 +35,5 @@ public class WebUserAccountController {
         return "redirect:administration";
     }
 
-    @GetMapping("/camera")
-    public String camera() {
-        return "camera";
-    }
-
 
 }

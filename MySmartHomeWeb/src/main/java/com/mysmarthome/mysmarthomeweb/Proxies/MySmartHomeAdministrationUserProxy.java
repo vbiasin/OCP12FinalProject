@@ -1,7 +1,6 @@
 package com.mysmarthome.mysmarthomeweb.Proxies;
 
 import com.mysmarthome.mysmarthomeweb.DTO.RoleDTO;
-import com.mysmarthome.mysmarthomeweb.DTO.UserAccountDTO;
 import com.mysmarthome.mysmarthomeweb.Entites.UserAccount;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +26,6 @@ public interface MySmartHomeAdministrationUserProxy {
     void removeUserAccount(@RequestBody int idUserAccount);
 
     @PostMapping(value = "/searchUserAccountBack")
-    List<UserAccount> searchUserAccount(@RequestBody UserAccountDTO userAccountDTO);
+    List<UserAccount> searchUserAccount(@RequestBody String mail);
 
 }

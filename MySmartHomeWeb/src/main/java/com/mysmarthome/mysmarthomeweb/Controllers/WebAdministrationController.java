@@ -1,7 +1,6 @@
 package com.mysmarthome.mysmarthomeweb.Controllers;
 
 import com.mysmarthome.mysmarthomeweb.DTO.RoleDTO;
-import com.mysmarthome.mysmarthomeweb.DTO.UserAccountDTO;
 import com.mysmarthome.mysmarthomeweb.Entites.UserAccount;
 import com.mysmarthome.mysmarthomeweb.Proxies.MySmartHomeAdministrationUserProxy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +34,11 @@ public class WebAdministrationController {
     @PostMapping("/searchUserAccount")
     public String searchUserAccount( @RequestParam(name="mail", defaultValue="toto@exemple.com") String mail,Model model) throws Exception {
 
-        UserAccountDTO userAccountDTO = new UserAccountDTO(mail);
+        String value = mail;
         List<UserAccount> pageListUsers;
         try {
 
-            pageListUsers = userProxy.searchUserAccount(userAccountDTO);
+            pageListUsers = userProxy.searchUserAccount(value);
             model.addAttribute("listUsers",pageListUsers);
 
 

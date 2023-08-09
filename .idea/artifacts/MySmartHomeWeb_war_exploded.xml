@@ -26,7 +26,6 @@
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:6.0.6.Final" />
           <element id="library" level="project" name="Maven: org.jboss:jandex:2.4.2.Final" />
           <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.5.1" />
-          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.12.23" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:4.0.2" />
           <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-core:4.0.2" />
           <element id="library" level="project" name="Maven: org.eclipse.angus:angus-activation:2.0.0" />
@@ -152,6 +151,7 @@
           <element id="library" level="project" name="Maven: org.springframework.session:spring-session-core:3.0.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:6.0.9" />
           <element id="library" level="project" name="Maven: org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.12.22" />
         </element>
       </element>
       <element id="directory" name="META-INF">

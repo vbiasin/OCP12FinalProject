@@ -1,6 +1,7 @@
 package com.mysmarthome.mysmarthomeweb.Proxies;
 
 import com.mysmarthome.mysmarthomeweb.Entites.Camera;
+import com.mysmarthome.mysmarthomeweb.Entites.RecordValue;
 import com.mysmarthome.mysmarthomeweb.Entites.Sensor;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,9 @@ public interface MySmartHomeAdministrationDeviceProxy {
 
     @GetMapping(value = "/getSensorsBack")
     List<Sensor> getSensors();
+
+    @PostMapping(value="/getRecordValuesBack")
+    List<RecordValue> getRecordValues(@RequestBody String sensorName);
 
 
 

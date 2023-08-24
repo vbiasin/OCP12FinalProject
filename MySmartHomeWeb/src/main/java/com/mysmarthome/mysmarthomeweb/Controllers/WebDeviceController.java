@@ -1,7 +1,9 @@
 package com.mysmarthome.mysmarthomeweb.Controllers;
 
+import com.mysmarthome.mysmarthomeweb.Entites.RecordValue;
 import com.mysmarthome.mysmarthomeweb.Entites.Sensor;
 import com.mysmarthome.mysmarthomeweb.Entites.Camera;
+import com.mysmarthome.mysmarthomeweb.Entites.UserAccount;
 import com.mysmarthome.mysmarthomeweb.Proxies.MySmartHomeAdministrationDeviceProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -69,5 +71,30 @@ public class WebDeviceController {
     @GetMapping("/camera")
     public String cameraVideo() {
         return "camera";
+    }
+
+    @GetMapping("/sensorsData")
+    public String sensorsData() {
+
+        return "sensorsdata";
+    }
+
+    @PostMapping("/getRecordValues")
+    public String getRecordvalues( @RequestParam(name="sensorName", defaultValue="toto") String sensorName,Model model) throws Exception {
+
+        String value = sensorName;
+        List<RecordValue> pageListRecordValues;
+        try {
+
+            pageListRecordValues = deviceProxy.getRecordValues(value);
+            model.addAttribute("listRecordValues",pageListRecordValues);
+
+
+
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return "sensorsData";
     }
 }

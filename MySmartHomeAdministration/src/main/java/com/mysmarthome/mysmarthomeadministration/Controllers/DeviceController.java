@@ -1,5 +1,6 @@
 package com.mysmarthome.mysmarthomeadministration.Controllers;
 
+import com.mysmarthome.mysmarthomeadministration.Entites.RecordValue;
 import com.mysmarthome.mysmarthomeadministration.Services.IDeviceService;
 import com.mysmarthome.mysmarthomeadministration.Entites.Sensor;
 import com.mysmarthome.mysmarthomeadministration.Entites.Camera;
@@ -74,6 +75,17 @@ public class DeviceController {
     public ResponseEntity<List<Sensor>> getSensors() throws Exception {
         try {
             return new ResponseEntity<List<Sensor>>( deviceService.getSensors(), HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @PostMapping("/getRecordValuesBack")
+    public ResponseEntity<List<RecordValue>> getRecordValues(@RequestBody String sensorName) throws Exception {
+        try {
+
+            return new ResponseEntity<List<RecordValue>>(deviceService.getRecordValues(sensorName), HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
         }

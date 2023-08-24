@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{template.html}">
+<head>
+    <meta charset="utf-8"/>
+    <title>Administration</title>
+</head>
+<body>
+<section layout:fragment="content" class="jumbotron">
+    <h1>HISTORIQUE DES CAPTEURS !!!</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Rechercher des enregistrements </h3>
+                    <h4>Saisissez le nom d'un capteur</h4>
+                    <div>
+                        <form th:action="@{/getRecordValues}" method="post">
+                            <div>
+                                <label>Nom du capteur:</label>
+                                <input type="text" name="sensorName" />
+                            </div>
+                            <button type="submit">Rechercher</button>
+                        </form>
+                        <div th:if="${exception}" th:text="${exception}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Liste des enregistrements</h3>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th><th>Nom </th><th>Valeur</th><th>Date d'enregistrement</th>
+                        </tr>
+                        <tr th:each="recordValue:${listRecordValues}">
+                            <td th:text= "${recordValue.id}"></td>
+                            <td th:text= "${recordValue.sensorName}"></td>
+                            <td th:text= "${recordValue.value}"></td>
+                            <td th:text= "${recordValue.recordDate}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

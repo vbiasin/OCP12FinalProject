@@ -24,9 +24,6 @@ public class RoleServiceImpl implements IRoleService{
     @Qualifier("roleRepository")
     private RoleRepository roleRepository;
 
-    public RoleServiceImpl(UserAccountRepository userAccountRepository, RoleRepository roleRepository) {
-    }
-
 
     @Override
     public void addRoleToUserAccount(String mail, int idRole) throws Exception {

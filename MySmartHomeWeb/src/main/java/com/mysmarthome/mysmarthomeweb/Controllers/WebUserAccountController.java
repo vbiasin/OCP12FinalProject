@@ -18,6 +18,7 @@ public class WebUserAccountController {
         return "login";
     }
 
+
     @GetMapping("/login")
     public String login() {
         return "login";
@@ -33,6 +34,18 @@ public class WebUserAccountController {
         UserAccount userAccount = new UserAccount(mail,password);
         userProxy.registerUser(userAccount);
         return "redirect:administration";
+    }
+
+    @GetMapping("/firstRun")
+    public String firstRun() {
+        return "firstRun";
+    }
+
+    @PostMapping("/firstInscription")
+    public String inscriptionFirstRun( String mail, String password) {
+        UserAccount userAccount = new UserAccount(mail,password);
+        userProxy.registerUser(userAccount);
+        return "redirect:login";
     }
 
 

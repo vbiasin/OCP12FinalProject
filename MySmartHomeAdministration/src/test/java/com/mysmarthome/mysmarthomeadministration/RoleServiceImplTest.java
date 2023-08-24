@@ -8,13 +8,13 @@ import com.mysmarthome.mysmarthomeadministration.Services.RoleServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
 import java.util.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
+
 class RoleServiceImplTest {
 
     @Mock
@@ -24,13 +24,12 @@ class RoleServiceImplTest {
     private RoleRepository roleRepository;
 
 
+    @InjectMocks
     private RoleServiceImpl roleService;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-
-
     }
 
     @Test
@@ -44,11 +43,9 @@ class RoleServiceImplTest {
         roles.add(new Role("USER"));
         userAccount.setRoles(roles);
         userAccount.setId(1);
-
         when(userAccountRepository.findByMail(mail)).thenReturn(Optional.of(userAccount));
         when(roleRepository.findById(idRole)).thenReturn(Optional.of(role));
         when(userAccountRepository.saveAndFlush(userAccount)).thenReturn(userAccount);
-        roleService=new RoleServiceImpl(userAccountRepository,roleRepository);
         roleService.addRoleToUserAccount(mail, idRole);
 
         Assertions.assertTrue(userAccount.getRoles().contains(role));
@@ -89,7 +86,6 @@ class RoleServiceImplTest {
         when(userAccountRepository.findByMail(mail)).thenReturn(Optional.of(userAccount));
         when(roleRepository.findById(idRole)).thenReturn(Optional.of(role));
         when(userAccountRepository.saveAndFlush(userAccount)).thenReturn(userAccount);
-        roleService=new RoleServiceImpl(userAccountRepository,roleRepository);
         roleService.addRoleToUserAccount(mail, idRole);
 
         Assertions.assertEquals(2, userAccount.getRoles().size());
@@ -101,7 +97,6 @@ class RoleServiceImplTest {
         String mail = "unknown@mail.com";
         int idRole = 1;
         when(userAccountRepository.findByMail(mail)).thenReturn(Optional.empty());
-        roleService=new RoleServiceImpl(userAccountRepository,roleRepository);
 
         // act and assert
         Assertions.assertThrows(Exception.class, () -> roleService.removeRoleFromUserAccount(mail, idRole), "L'utilisateur spécifié n'existe pas !");
@@ -114,7 +109,6 @@ class RoleServiceImplTest {
         int idRole = 2;
         when(userAccountRepository.findByMail(mail)).thenReturn(Optional.of(new UserAccount()));
         when(roleRepository.findById(idRole)).thenReturn(Optional.empty());
-        roleService=new RoleServiceImpl(userAccountRepository,roleRepository);
 
         // act and assert
         Assertions.assertThrows(Exception.class, () -> roleService.removeRoleFromUserAccount(mail, idRole), "Aucun rôle ne correspond à cet identifiant !");
@@ -133,7 +127,6 @@ class RoleServiceImplTest {
         userAccount.setRoles(roles);
         when(userAccountRepository.findByMail(mail)).thenReturn(Optional.of(userAccount));
         when(roleRepository.findById(idRole)).thenReturn(Optional.of(role));
-        roleService=new RoleServiceImpl(userAccountRepository,roleRepository);
 
         // act
         roleService.removeRoleFromUserAccount(mail, idRole);
@@ -156,7 +149,6 @@ class RoleServiceImplTest {
         userAccount.setRoles(roles);
         when(userAccountRepository.findByMail(mail)).thenReturn(Optional.of(userAccount));
         when(roleRepository.findById(idRole)).thenReturn(Optional.of(role));
-        roleService=new RoleServiceImpl(userAccountRepository,roleRepository);
 
         // act
         roleService.removeRoleFromUserAccount(mail, idRole);

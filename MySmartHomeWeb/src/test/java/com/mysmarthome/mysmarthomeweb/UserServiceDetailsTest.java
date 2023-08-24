@@ -19,7 +19,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-@SpringBootTest
+
 class UserServiceDetailsTest {
 
     @Mock

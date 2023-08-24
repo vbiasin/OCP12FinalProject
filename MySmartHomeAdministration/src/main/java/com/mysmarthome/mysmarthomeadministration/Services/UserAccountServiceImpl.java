@@ -34,13 +34,13 @@ public class UserAccountServiceImpl implements IUserAccountService{
     public UserAccount register(UserAccount account) throws Exception {
         Optional<Role> defaultRole = roleRepository.findByName("USER");
         if(defaultRole.isEmpty()) throw new Exception("Erreur lors de l'affectation du Role USER");
-        Optional<Role> adminRole = roleRepository.findByName("ADMIN");
-        if(adminRole.isEmpty()) throw new Exception("Erreur lors de l'affectation du Role ADMIN");
+        /*Optional<Role> adminRole = roleRepository.findByName("ADMIN");
+        if(adminRole.isEmpty()) throw new Exception("Erreur lors de l'affectation du Role ADMIN");*/
         Optional<UserAccount> newUser = userAccountRepository.findByMail(account.getMail());
         if(!newUser.isEmpty()) throw new Exception("Un utilisateur avec cette adresse mail existe déjà !");
         Collection<Role> roles = new ArrayList<Role>();
         roles.add(defaultRole.get());
-        roles.add(adminRole.get());
+        //roles.add(adminRole.get());
         account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
         account.setRoles(roles);
         return userAccountRepository.save(account);
@@ -49,12 +49,13 @@ public class UserAccountServiceImpl implements IUserAccountService{
     @Override
     public boolean isValid(UserAccount account) throws Exception {
         String password= bCryptPasswordEncoder.encode(account.getPassword());
-        System.out.println("mot de passe : " +account.getPassword());
+        System.out.println("mot de passe saisi : " +account.getPassword());
         System.out.println("mot de passe crypté : " +password);
 
         Optional<UserAccount> newUserAccount = userAccountRepository.findByMail(account.getMail());
         String passwordDB=newUserAccount.get().getPassword();
         System.out.println("mot de passe DB : " +passwordDB);
+
         if(newUserAccount.isEmpty()) {
             throw new Exception("Utilisateur inexistant!");
         }
@@ -95,6 +96,4 @@ public class UserAccountServiceImpl implements IUserAccountService{
 
         return result;
     }
-
-
 }

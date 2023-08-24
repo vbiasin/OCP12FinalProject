@@ -1,6 +1,7 @@
 package com.mysmarthome.mysmarthomeadministration.Services;
 
 import com.mysmarthome.mysmarthomeadministration.Entites.Camera;
+import com.mysmarthome.mysmarthomeadministration.Entites.RecordValue;
 import com.mysmarthome.mysmarthomeadministration.Entites.Sensor;
 
 import java.util.List;
@@ -12,5 +13,6 @@ public interface IDeviceService {
     public Camera addCamera(Camera camera) throws Exception;
     public List<Sensor> getSensors() throws Exception;
     public List<Camera> getCameras() throws Exception;
+    public List<RecordValue>getRecordValues(String sensorName) throws Exception;
 
 }

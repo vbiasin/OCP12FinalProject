@@ -1,13 +1,16 @@
 package com.mysmarthome.mysmarthomeadministration.Services;
 
 import com.mysmarthome.mysmarthomeadministration.DAO.CameraRepository;
+import com.mysmarthome.mysmarthomeadministration.DAO.RecordValueRepository;
 import com.mysmarthome.mysmarthomeadministration.DAO.SensorRepository;
 import com.mysmarthome.mysmarthomeadministration.Entites.Camera;
+import com.mysmarthome.mysmarthomeadministration.Entites.RecordValue;
 import com.mysmarthome.mysmarthomeadministration.Entites.Sensor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +23,9 @@ public class DeviceServiceImpl implements IDeviceService {
 
     @Autowired
     private CameraRepository cameraRepository;
+
+    @Autowired
+    private RecordValueRepository recordValueRepository;
 
     @Override
     public void removeSensor(int idSensor) throws Exception {
@@ -57,6 +63,14 @@ public class DeviceServiceImpl implements IDeviceService {
     @Override
     public List<Camera> getCameras() throws Exception {
         return cameraRepository.findAll();
+    }
+
+    @Override
+    public List<RecordValue> getRecordValues(String sensorName) throws Exception {
+        List<RecordValue> recordValues = new ArrayList<>();
+        recordValues = recordValueRepository.findRecordValueBySensorName(sensorName);
+        if(recordValues.isEmpty()) recordValues = recordValueRepository.findAll();
+        return recordValues;
     }
 
 }
